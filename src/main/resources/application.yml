@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    order:
+      jdbcUrl: jdbc:postgresql://${POSTGRES_CONNECTION_URL:localhost:5432}/${POSTGRES_DATABASE:order_db}?ssl=${DBCONNECTION_SSL_ENABLE:false}&&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory
+      username: ${POSTGRES_USERNAME:postgres}
+      password: changeme
+      driver-class-name: org.postgresql.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+    product:
+      jdbcUrl: jdbc:postgresql://${POSTGRES_CONNECTION_URL:localhost:5432}/${POSTGRES_DATABASE:product_db}?ssl=${DBCONNECTION_SSL_ENABLE:false}&&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory
+      username: ${POSTGRES_USERNAME:postgres}
+      password: ${POSTGRES_PASSWORD:changeme}
+      driver-class-name: org.postgresql.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+  liquibase:
+    enabled: true

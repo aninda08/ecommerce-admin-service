@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<databaseChangeLog   
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"   
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">   
+  
+   <changeSet id="changelog-product-schema-1.0" author="aninda">
+        <createTable tableName="product">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="price" type="NUMERIC(10,2)"/>
+            <column name="mrp" type="NUMERIC(10,2)"/>
+            <column name="stock_quantity" type="INT"/>
+            <column name="category" type="VARCHAR(100)"/>
+            <column name="size" type="VARCHAR(10)"/>
+            <column name="color" type="VARCHAR(50)"/>
+            <column name="image_url" type="TEXT"/>
+            <column name="is_active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="updated_by" type="VARCHAR(50)"/>
+            <column name="created_time" type="timestamp without time zone" defaultValueComputed="(now() at time zone 'utc')"/>
+            <column name="updated_time" type="timestamp without time zone" defaultValueComputed="(now() at time zone 'utc')"/>
+            <column name="deleted_time" type="timestamp without time zone"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog> 
